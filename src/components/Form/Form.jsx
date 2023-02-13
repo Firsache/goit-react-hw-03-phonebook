@@ -25,7 +25,7 @@ export class Form extends Component {
   };
   render() {
     return (
-      <Section title="Phonebook">
+      <Section titlePosition="end" title="Add contacts">
         <FormComponent onSubmit={this.handleSubmit}>
           <Label>
             <Span>Name</Span>
