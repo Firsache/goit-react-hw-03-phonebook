@@ -1,20 +1,13 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
-import { Container } from './App.styled';
+import { Container, Title } from './App.styled';
 import { GlobalStyles } from 'styles/globalStyles.styled';
 import { Contacts, Form, Filter, Section, Notification } from '../index';
 
-const initialContacts = [
-  { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-  { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-  { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-  { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-];
-
 export class App extends Component {
   state = {
-    contacts: JSON.parse(localStorage.getItem('contacts')) ?? initialContacts,
+    contacts: JSON.parse(localStorage.getItem('contacts')) ?? [],
     filteredName: '',
   };
 
@@ -63,6 +56,7 @@ export class App extends Component {
 
     return (
       <Container>
+        <Title>Phonebook</Title>
         <Form onSubmit={this.addContact} />
         <Section title="Contacts">
           {contacts.length > 0 ? (
